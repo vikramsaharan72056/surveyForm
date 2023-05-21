@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Theme = require("../model");
+const Theme = require("../models/theme");
 
 router.post("/savetheme", async (req, res) => {
   try {
