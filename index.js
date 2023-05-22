@@ -12,4 +12,3 @@ app.use(routerB);
 app.listen(8888, () => {
   console.log("server is listening at 8888");
 });
-module.exports = app;
