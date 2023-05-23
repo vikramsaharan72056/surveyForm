@@ -5,8 +5,8 @@ require("../middleware/requireLogin");
 const Survey = require("../models/survey");
 
 routerC.post("/createSurvey", async (req, res) => {
-  console.log(req.body);
   const { name, description, selectedOption, startDate, endDate } = req.body;
+
   try {
     const survey = new Survey({
       name,
@@ -15,10 +15,13 @@ routerC.post("/createSurvey", async (req, res) => {
       startDate,
       endDate,
     });
-    const data = await survey.save();
-    res.status(200).json(data);
+
+    await survey.save();
+    console.log(survey);
+    res.status(200).json(survey);
   } catch (err) {
     res.status(500).json({ message: err.message });
+    console.log(err.message);
   }
 });
 
